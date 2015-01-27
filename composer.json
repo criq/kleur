@@ -1,6 +1,6 @@
 {
-	"name": "jabli/katu",
-	"description": "katu framework",
+	"name": "jabli/kleur",
+	"description": "kleur",
 	"type": "library",
 	"require" : {
 		"php": ">=5.3.0",
