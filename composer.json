@@ -6,9 +6,7 @@
 		"php": ">=5.3.0",
 		"ext-curl": "*",
 		"ext-json": "*",
-		"jabli/katu": "*",
-		"mischiefcollective/colorjizz": "dev-master",
-		"league/color-extractor": "dev-master"
+		"jabli/katu": "*"
 	},
 	"minimum-stability": "dev",
 	"autoload": {
