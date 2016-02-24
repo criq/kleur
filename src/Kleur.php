@@ -18,7 +18,7 @@ class Kleur {
 		} elseif (is_array($color)) {
 			$color = new \MischiefCollective\ColorJizz\Formats\RGB($color[0], $color[1], $color[2]);
 		} else {
-			$color = (new \MischiefCollective\ColorJizz\Formats\Hex(ltrim($color, '#')))->toRGB();
+			$color = (new \MischiefCollective\ColorJizz\Formats\Hex(hexdec(ltrim($color, '#'))))->toRGB();
 		}
 
 		return $color;
