@@ -29,8 +29,14 @@ class Kleur {
 			return \Katu\Utils\Cache::get(['image', 'color', 'extract', $uri, $n], function() use($uri, $n) {
 				$client = new \League\ColorExtractor\Client;
 
-				$image = \Katu\Utils\Image::getThumbnailUrl($uri, 600, 100, [
-					'extension' => 'jpg',
+				$image = \Katu\Utils\Image::getVersionUrl($uri, [
+					'filters' => [
+						[
+							'filter' => 'fit',
+							'width' => 600,
+							'height' => 600,
+						],
+					],
 				]);
 
 				$extracted = (array) $client->loadJpeg($image)->extract($n);
