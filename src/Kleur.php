@@ -4,7 +4,7 @@ namespace Kleur;
 
 class Kleur {
 
-	static function extendTwig($twig) {
+	static function extendTwig(&$twig) {
 		$twig->addFilter(new \Twig_SimpleFilter('rgbColor',                ['\Kleur\Kleur', 'getRgbColor']));
 		$twig->addFilter(new \Twig_SimpleFilter('extractColors',           ['\Kleur\Kleur', 'extractColors']));
 		$twig->addFilter(new \Twig_SimpleFilter('orderColorsByBrightness', ['\Kleur\Kleur', 'orderColorsByBrightness']));
