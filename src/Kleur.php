@@ -13,7 +13,7 @@ class Kleur {
 	static function getRgbColor($color) {
 		if ($color instanceof \MischiefCollective\ColorJizz\ColorJizz) {
 
-		} elseif ($color instanceof \Katu\Types\TColorRgb) {
+		} elseif ($color instanceof \Katu\Types\TColor) {
 			$color = new \MischiefCollective\ColorJizz\Formats\RGB($color->r, $color->g, $color->b);
 		} elseif (is_array($color)) {
 			$color = new \MischiefCollective\ColorJizz\Formats\RGB($color[0], $color[1], $color[2]);
