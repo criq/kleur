@@ -2,17 +2,18 @@
 
 namespace Kleur;
 
-class Kleur {
-
-	static function extendTwig(&$twig) {
-		$twig->addFilter(new \Twig_SimpleFilter('rgbColor',                ['\Kleur\Kleur', 'getRgbColor']));
-		$twig->addFilter(new \Twig_SimpleFilter('extractColors',           ['\Kleur\Kleur', 'extractColors']));
-		$twig->addFilter(new \Twig_SimpleFilter('orderColorsByBrightness', ['\Kleur\Kleur', 'orderColorsByBrightness']));
+class Kleur
+{
+	public static function extendTwig(&$twig)
+	{
+		$twig->addFilter(new \Twig\TwigFilter('rgbColor', ['\Kleur\Kleur', 'getRgbColor']));
+		$twig->addFilter(new \Twig\TwigFilter('extractColors', ['\Kleur\Kleur', 'extractColors']));
+		$twig->addFilter(new \Twig\TwigFilter('orderColorsByBrightness', ['\Kleur\Kleur', 'orderColorsByBrightness']));
 	}
 
-	static function getRgbColor($color) {
+	public static function getRgbColor($color)
+	{
 		if ($color instanceof \MischiefCollective\ColorJizz\ColorJizz) {
-
 		} elseif ($color instanceof \Katu\Types\TColor) {
 			$color = new \MischiefCollective\ColorJizz\Formats\RGB($color->r, $color->g, $color->b);
 		} elseif (is_array($color)) {
@@ -24,7 +25,8 @@ class Kleur {
 		return $color;
 	}
 
-	static function orderColorsByBrightness($colors) {
+	public static function orderColorsByBrightness($colors)
+	{
 		$sorted = [];
 
 		foreach ((array) $colors as $color) {
@@ -34,15 +36,14 @@ class Kleur {
 			];
 		}
 
-		array_multisort(array_map(function($i) {
+		array_multisort(array_map(function ($i) {
 			return $i['brightness'];
 		}, $sorted), $sorted, SORT_NUMERIC);
 
-		$sorted = array_map(function($i) {
+		$sorted = array_map(function ($i) {
 			return $i['color'];
 		}, $sorted);
 
 		return $sorted;
 	}
-
 }
