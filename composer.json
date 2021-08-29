@@ -6,7 +6,7 @@
 		"php": ">=5.3.0",
 		"ext-curl": "*",
 		"ext-json": "*",
-		"jabli/katu": "*",
+		"criq/katu": "v1.x-dev",
 		"mischiefcollective/colorjizz": "@stable"
 	},
 	"minimum-stability": "dev",
